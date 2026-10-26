@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image"
-                bat "docker build --no-cache -t myflaskapp:v3 ." 
+                bat "docker build --no-cache -t kubdemoapp:v1 ." 
             }
         }
         stage('Docker Login') {
@@ -16,9 +16,9 @@ pipeline {
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
-                bat "docker tag myflaskapp:v3 vyshitha/sample1:latest"               
+                bat "docker tag kubdemoapp:v1 vyshitha/sample:kubeimage2"               
                     
-                bat "docker push vyshitha/sample1:latest"
+                bat "docker push vyshitha/sample:kubeimage2"
                 
             }
         }
